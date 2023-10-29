@@ -20,11 +20,11 @@ const ProductCard = ({
     return router.push(`/product/${id}`)
   }
   return (
-    <div className="h-auto p-2 px-4 mx-auto dark:bg-gray-800 w-52 sm:px-6 lg:px-8 max-w-10xl shrink-0" onClick={navigate}>
+    <div className="h-auto p-2 px-4 dark:bg-gray-800 w-52 sm:px-6 lg:px-8 shrink-0 dark:bg-opacity-40 md:gap-x-2 lg:w-72"  onClick={navigate}>
       <div className="relative group">
-        <div className="w-full overflow-hidden aspect-w-1 aspect-h-1">
+        <div className="w-full overflow-hidden aspect-w-1 aspect-h-1 ">
           <Image
-            className="object-cover w-full h-32 transition-all duration-300 rounded-md "
+            className="object-cover w-full h-32 transition-all duration-300 rounded-md md:h-72 md:w-72 lg:w-full"
             src={image}
             width={300}
             height={300}

@@ -9,6 +9,7 @@ import AddToCart from "./_actions/addToCart";
 import toast, { Toaster } from "react-hot-toast";
 import { ChckForItem } from "./_actions/checForItem";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ProductInterface {
   id: string;
@@ -63,10 +64,10 @@ export default function ProductView() {
       productId: productId as string,
     });
     if (status === 409) {
-      setAlreadyinBag(409);
+      setAlreadyinBag(200);
     }
     if (status === 200) {
-      setAlreadyinBag(200);
+      setAlreadyinBag(404);
     }
   }
 
@@ -88,79 +89,53 @@ export default function ProductView() {
       </div>
     );
   return (
-    <div className="bg-white dark:bg-transparent dark:text-gray-200">
+    <div className="mx-auto bg-white dark:bg-transparent dark:text-gray-200 lg:grid lg:grid-cols-2 lg:max-w-7xl">
       <Toaster />
-      <div className="pt-6">
-        <div className="max-w-2xl mx-auto mt-6 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-            <img
-              src={product?.images[0].slice(8)}
-              className="object-cover object-center w-full h-full"
+
+      {product ? (
+        <>
+          <div className="max-w-md p-4 mx-auto space-y-4">
+            <Image
+              src={product.images[0].slice(8)}
+              alt={product.name}
+              className="object-contain w-full h-82 dark:bg-gray-800 dark:bg-opacity-30"
+              width={500}
+              height={500}
+              alt=""
             />
           </div>
-        </div>
-
-        <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-          <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              {product?.name}
-            </h1>
-          </div>
-          {/* Options */}
-          <div className="mt-4 lg:row-span-3 lg:mt-0">
-            <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight ">&#8377; {product?.price}</p>
-            {/* Reviews */}
-            <div className="mt-6">
-              <h3 className="sr-only">Reviews</h3>
-            </div>
-            <form className="mt-10">
-              <div className="mt-10">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium ">Size</h3>
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    Size guide
-                  </a>
-                </div>
-                <fieldset className="mt-4"></fieldset>
-              </div>
-              <div>
-                <h3 className="sr-only">Description</h3>
-                <div className="space-y-6">
-                  <p className="text-base font-medium">
-                    {product?.description}
-                  </p>
-                </div>
-              </div>
-              {alredyinBagStatus !== 409 ? (
-                <Button
-                  type="submit"
-                  className="float-right my-5 rounded-full"
-                  onClick={(e) => handleCart(e)}
-                >
-                  {addTocartStatus ? "Added to Bag" : "Add to bag"}
-                </Button>
-              ) : (
-                <div className="h-10 "></div>
-              )}
-              <button
-                type="submit"
-                className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                onClick={(e) => {
-                  e.preventDefault()
-                  return router.push(`${productId}/buy`);
-                }}
+          <div className="max-w-md p-4 mx-auto space-y-4">
+            <h1 className="mt-4 text-xl font-bold">{product.name}</h1>
+            <p className="mt-2 text-gray-300">{product.description}</p>
+            <p className="mt-2 text-2xl font-bold">&#8377; {product.price}</p>
+            <div>
+              <Button
+                onClick={(e) => handleCart(e)}
+                className="w-full mt-4"
+                disabled={
+                  addTocartStatus === 200
+                    ? true
+                    : alredyinBagStatus === 200
+                    ? true
+                    : false
+                }
+              >
+                {addTocartStatus ? "Added to Bag" : "Add to Bag"}
+              </Button>
+              <Button
+                onClick={() => router.push(`/product/${productId}/buy`)}
+                className="w-full mt-2"
               >
                 Buy
-              </button>
-            </form>
+              </Button>
+            </div>
           </div>
-          <div className="py-0 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6"></div>
+        </>
+      ) : (
+        <div className="flex items-center justify-center h-screen">
+          Loading...
         </div>
-      </div>
+      )}
     </div>
   );
 }

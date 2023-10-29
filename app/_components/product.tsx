@@ -24,13 +24,13 @@ return <>404</>
 const BestSeller = ()=>{
       
     return (
-    <main className='grid h-auto grid-cols-1 py-6 sm:grid-cols-2 sm:h-52 gap-y-4'>
-       <div className='relative'>
+    <main className='grid w-full h-auto grid-cols-1 py-6 sm:grid-cols-2 sm:h-52 gap-y-4'>
+       <div className='relative w-full'>
        <h1 className='font-[ApfelFett] tracking-wide text-2xl absolute top-0 z-20 dark:text-zin-900 text-center w-full h-full flex justify-center items-center'>
        Women's Classic Leather Jacket
        </h1>
        <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-        <Image width={500} height={500} alt = "" src = {women_jacket} className='object-cover h-64 dark:grayscale -z-10'/>
+        <Image width={500} height={500} alt = "" src = {women_jacket} className='object-cover w-full h-64 dark:grayscale -z-10'/>
        </div>
 
        <div className='relative'>
@@ -38,7 +38,7 @@ const BestSeller = ()=>{
        Men's Hoodie
        </h1>
        <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-        <Image width={500} height={500} alt = "" src = {hoodie} className='object-cover h-64 dark:grayscale -z-10'/>
+        <Image width={500} height={500} alt = "" src = {hoodie} className='object-cover w-full h-64 dark:grayscale -z-10'/>
        </div>
     </main>
 )
@@ -54,7 +54,7 @@ const BestSeller = ()=>{
            {/* Men's Classic Leather Jacket */}
            </h1>
            <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-            <Image width={500} height={500} alt = "" src = {style_tshirt} className='object-cover h-64 dark:grayscale -z-10 '/>
+            <Image width={500} height={500} alt = "" src = {style_tshirt} className='object-cover w-full h-64 dark:grayscale -z-10'/>
            </div>
     
            <div className='relative'>
@@ -62,7 +62,7 @@ const BestSeller = ()=>{
            Men's Slim Pant
            </h1>
            <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-            <Image width={500} height={500} alt = "" src = {slimpant} className='object-cover h-64 dark:grayscale -z-10'/>
+            <Image width={500} height={500} alt = "" src = {slimpant} className='object-cover w-full h-64 dark:grayscale -z-10'/>
            </div>
         </main>
     )
@@ -78,8 +78,8 @@ const BestSeller = ()=>{
                <h1 className='font-[ApfelFett] tracking-wide text-2xl absolute top-0 z-20 dark:text-zin-900 text-center w-full h-full flex justify-center items-center'>
                Men's Classic Leather Jacket
                </h1>
-               <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-                <Image width={500} height={500} alt = "" src = {style_tshirt} className='object-cover h-64 dark:grayscale -z-10 '/>
+               <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70 '></div>
+                <Image width={500} height={500} alt = "" src = {style_tshirt} className='object-cover w-full h-64 dark:grayscale -z-10'/>
                </div>
         
                <div className='relative'>
@@ -87,7 +87,7 @@ const BestSeller = ()=>{
                Men's Slim Pant
                </h1>
                <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
-                <Image width={500} height={500} alt = "" src = {style_oversize} className='object-cover h-64 dark:grayscale -z-10'/>
+                <Image width={500} height={500} alt = "" src = {style_oversize} className='object-cover w-full h-64 dark:grayscale -z-10'/>
                </div>
             </main>
         )

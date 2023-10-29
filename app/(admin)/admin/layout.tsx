@@ -7,9 +7,11 @@ type Props = {
 
 export default function Layout({ children }: Props) {
 
-  return <div>
-    <div className="absolute top-0 mt-2 -translate-x-full opacity-0 left-full">
+  return <div className="z-30 ">
+    <div className="absolute top-0 w-32 mt-8 ml-6 -translate-x-full left-full">
     <SideMenu/>
+    
         </div>
-    {children}</div>;
+    {children}
+    </div>;
 }

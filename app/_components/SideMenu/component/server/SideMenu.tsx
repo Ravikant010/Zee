@@ -30,7 +30,7 @@ export  default function SideMenu({}: Props) {
     <Sheet>
       <SheetTrigger asChild className="p-0 bg-transparent border-0">
         <Button variant="outline" className="hover:bg-transparent">
-          <Menu size={40} strokeWidth={1} />
+          <Menu size={40} strokeWidth={1} className="text-gray-800"/>
         </Button>
       </SheetTrigger>
       <SheetContent className={cn("bg-opacity-20 bg-gray-800 blur-mg")}>

@@ -20,7 +20,7 @@ export async function ChckForItem({
         userId: user?.id,
       },
     });
-
+console.log(cartItem)
     if (cartItem) {
       return { data: "already in bag", status: 409 };
     }

@@ -36,12 +36,12 @@ export default function Seller({}: Props) {
   }, [user]);
   if (role === "SELLER")
     return (
-      <Button type="submit" onClick={Seller}>
+      <Button type="submit" onClick={Seller} className="w-full">
         Your Shop
       </Button>
     );
   return (
-    <Button type="submit" onClick={Seller}>
+    <Button type="submit" onClick={Seller}  className="w-full">
       Become a Seller
     </Button>
   );

@@ -29,9 +29,10 @@ export default function page({}: Props) {
       </div>
     );
   return (
-    <div className="grid justify-center w-full grid-cols-1 place-items-center">
-        <div className="w-full text-3xl font-semibold capitalize text-start dark:text-purple-500 font-[ApfelFett] p-4">Your order history</div>
-      {orderHistory.map((orders) => {
+    <div className="grid justify-center w-full grid-cols-1 place-items-center ">
+        <div className="w-full text-3xl font-semibold capitalize text-start dark:text-purple-500 font-[ApfelFett] p-4 md:text-4xl md:border-b-2 border-purple-800">Your order history</div>
+
+        <div className="grid justify-center w-full grid-cols-1 mx-auto md:grid-cols-2 place-items-center "> {orderHistory.map((orders) => {
         return (
             //@ts-ignore
           <ProductCard
@@ -40,7 +41,8 @@ export default function page({}: Props) {
           />
         );
       })}
- 
+ </div>
+     
     </div>
   );
 }

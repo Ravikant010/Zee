@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function ProductCard({image_url, name}: Props) {
-  return  <div className={cn("flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white border border-gray-100 shadow-md group", "dark:bg-gray-800 dark:bg-opacity-20 rounded-md dark:text-zinc-200")}>
+  return  <div className={cn("flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white border border-gray-100 shadow-md group", "dark:bg-gray-800 dark:bg-opacity-20 rounded-md dark:text-zinc-200 ")}>
   <a className="relative flex overflow-hidden h-60">
     <Image className="absolute top-0 right-0 object-cover w-full h-full" src={image_url?.slice(8)} alt="product image"  width={500} height={500 }/>
   </a>

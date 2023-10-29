@@ -6,6 +6,7 @@ import Icon from "@/app/_components/Icon";
 import { Store } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/loader";
 
 type Props = {};
 interface ShopInterface {
@@ -32,6 +33,8 @@ export default function Products({}: Props) {
   useEffect(() => {
     handleGetShop();
   }, []);
+  if(!shop)
+  return <div className="absolute top-1/2 left-1/2 -translate-1/2"><Loader/></div>
   return (
     <div className="p-2 space-y-2">
       <Icon Icon={Store} size={32} />

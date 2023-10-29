@@ -33,6 +33,8 @@ console.log(path)
           onClick={() => {
             if(options === "Exit")
             return Navigate("shop")
+          if(options.toLowerCase().replace(/\s/g, '')==="addproduct")
+          return Navigate("admin/shop/" +options.toLowerCase().replace(/\s/g, ''))
             console.log(options.toLowerCase().replace(/\s/g, ''))
 return Navigate("admin/" +options.toLowerCase().replace(/\s/g, ''))
           }}
