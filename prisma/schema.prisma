@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id       String @id @default(cuid())
+  username String @unique
+  email    String @unique
+  role     Role   @default(BUYER)
+  shop    Shop[]
+  reviews  Review[]
+  fullname String
+  wishlists Wishlist[]
+  orders    Order[]
+}
+enum Role {
+  BUYER
+  SELLER
+}
+model Shop {
+  id          String       @id @unique @default(cuid())
+  shop_name        String    @unique
+  shop_description String
+  shop_address String
+  shop_city String
+  shop_owner       User      @relation(fields: [ownerId], references: [id])
+  ownerId     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now())
+  products    Product[]
+}
+enum Sizes {
+  S
+  M
+  L
+  XL
+}
+
+model Product {
+  id          String     @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  shop        Shop       @relation(fields: [shopId], references: [id])
+  shopId      String
+  category    String
+  sizes       String[]
+  reviews     Review[]
+  inventory   Int
+  Wishlist    Wishlist[]
+  images      String[]
+  soldCount   Int        @default(0)
+  rating      Int?
+  createdAt   DateTime   @default(now())
+  active      Boolean?   @default(true)
+  Order       Order[]
+}
+enum FashionCategory {
+  WOMENS_CLOTHING
+  MENS_CLOTHING
+  FOOTWEAR
+  ACCESSORIES
+  KIDS_BABY_CLOTHING
+  SPECIALTY_CLOTHING
+  SEASONAL_COLLECTIONS
+  ETHNIC_CULTURAL_CLOTHING
+  ACTIVEWEAR_SPORTS
+  INTIMATE_APPAREL
+  COSTUMES_COSPLAY
+  FASHION_BRANDS
+  CUSTOM_HANDMADE
+  SUSTAINABLE_ECO_FRIENDLY
+  SHOPS_BY_STYLE
+  SHOPS_BY_OCCASION
+  SHOPS_BY_SIZE
+  SHOPS_BY_GENDER
+}
+enum Status {
+  Cart
+  Ordered
+  Dispatched
+  Delivered
+}
+model Order {
+  id      Int     @id @default(autoincrement())
+  user    User    @relation(fields: [buyerId], references: [id])
+  buyerId String
+  Address String
+  city    String
+  zip     Int
+  product Product @relation(fields: [productId], references: [id])
+  productId     String
+  status        Status
+  paymentMethod String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Review {
+  id        Int      @id @default(autoincrement())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Wishlist {
+  id        Int     @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  @@unique([userId, productId]) // Enforce uniqueness of user-product combinations
+}
