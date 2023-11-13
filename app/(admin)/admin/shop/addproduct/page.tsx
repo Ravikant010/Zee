@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import ProductForm from './_components/ProductForm'
+import ProductForm from "./_components/ProductForm";
 
-type Props = {}
+type Props = {};
 
 export default function page({}: Props) {
-
-  return <main>
-
-<ProductForm />
-  </main>
-     
+  return (
+    <main>
+      <ProductForm />
+    </main>
+  );
 }
