@@ -29,7 +29,7 @@ const BestSeller = ()=>{
        <h1 className='font-[ApfelFett] tracking-wide text-2xl absolute top-0 z-20 dark:text-zin-900 text-center w-full h-full flex justify-center items-center'>
        Women's Classic Leather Jacket
        </h1>
-       <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70'></div>
+       <div className='absolute top-0 z-10 w-full h-full dark:bg-gray-800 dark:opacity-70 '></div>
         <Image width={500} height={500} alt = "" src = {women_jacket} className='object-cover w-full h-64 dark:grayscale -z-10'/>
        </div>
 

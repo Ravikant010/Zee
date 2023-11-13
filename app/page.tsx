@@ -163,14 +163,14 @@ const BlurBGCircle = ({ classname }: { classname: string }) => {
 const BubbleShape = ({ text, index }: { index: number; text: string }) => (
   <section
     className={cn(
-      "text-lg p-4 w-11/12 mx-auto flex items-center relative max-w-lg lg:max-w-4xl bg-red-00",
+      "text-lg p-4 w-11/12 mx-auto flex items-center relative max-w-lg lg:max-w-4xl ",
       { ["justify-end"]: index % 2 == 0 },
       {
         ["justify-start"]: index % 2 !== 0,
       }
     )}
   >
-    <BlurBGCircle classname="w-32 h-32 bg-gray-800 rounded-full sm:w-44 sm:h-44 blur-xl bg-opacity-70 lg:w-72 lg:h-72 lg:blur-[4rem]"></BlurBGCircle>
+    <BlurBGCircle classname="w-32 h-32 bg-gray-800 rounded-full sm:w-44 sm:h-44 blur-xl bg-opacity-70 lg:w-72 lg:h-72 lg:blur-[4rem] "></BlurBGCircle>
     <div className="absolute flex items-center justify-center w-32 h-32 mx-auto text-center break-words lg:w-72 lg:h-72 sm:w-44 sm:h-44">
       {text}
     </div>
