@@ -1,6 +1,5 @@
 # Zee - Full-Stack E-Commerce Platform
 
-![Zee Logo](/path/to/your/logo.png)
 
 Zee is a comprehensive full-stack e-commerce platform where users can explore a diverse collection of clothing and accessories. Not only can users shop for their favorite items, but the platform also empowers individuals to become sellers, creating their own online shops to showcase and sell their products.
 
